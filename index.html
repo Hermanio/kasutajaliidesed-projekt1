@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style-colours.css"> -->
 
 </head>
 
@@ -29,8 +30,10 @@
     <div class="col-12-xs">
 
       <form class="parsley-form" data-parsley-validate data-parsley-focus="first">
+      <div class="col-md-12"> 
         <div id="person-information">
             <h3>Teataja</h3>
+            
             <div class="form-group">
               <label>Eesnimi</label>
               <input class="form-control" type="text" required="">
@@ -40,20 +43,11 @@
               <label>Perekonnanimi</label>
               <input class="form-control" type="text" required="">
             </div>
+            
+            
+            
 
-            <div class="form-group">
-              <label>Telefon</label>
-              <input class="form-control" type="text" required="">
-            </div>
-
-            <div class="form-group">
-              <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
-              <input class="form-control" type="text" required="">
-            </div>
-
-              <p>
-                Täida vähemalt üks järgnevatest:
-              </p>
+              
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -70,32 +64,80 @@
                         </span>
                         <input type='text' class="form-control" />
                     </div>
-                  </div>
+                    
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                      <label>Kodakondsus</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">     
+                    <div class="form-group">
+                      <label>Amet</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>   
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>Telefon</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">      
+                    <div class="form-group">
+                      <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>E-mail uuesti</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
                 </div>
               </div>
             </div>
 
-        </div>
+        
         <div>
           <h3>Sündmus</h3>
+          
           <div class="form-group">
-            <label>Sündmuse toimumise aeg</label>
+            <label>Kuupäev</label>
             <div class='input-group date datetimepicker'>
                 <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                 </span>
                 <input type='text' class="form-control" />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label>Sündmuse toimumise riik</label>
-            <select class="input-group" id="countries">
-            </select>
-            <label>Sündmuse toimumise aadress</label>
+            <label>Kellaaeg</label>
             <input class="form-control" type="text" required="">
             </select>
-            <label>Sündmuse toimumise koht (nt park, kauplus, internet vms)</label>
+          </div>
+           
+          <div class="form-group">
+            <label>Riik</label>
+            <select class="input-group" id="countries"></select>
+            
+          </div>
+         
+          <div class="form-group">
+            <label>Aadress</label>
+            <input class="form-control" type="text" required="">
+
+            
+          </div>
+          <div class="form-group">
+            <label>Toimumise koht (nt park, kauplus, internet vms)</label>
             <input class="form-control" type="text" required="">
             </select>
           </div>
@@ -112,10 +154,12 @@
               <input type="text" class="form-control">
             </div>
           </div>
+        
         </div>
 
         <div>
           <h3>Ära võetud/viidud/saamata jäänud vara</h3>
+          
           <div class="form-group">
             <label>Eseme nimetus</label>
             <input class="form-control" type="text" required="">
@@ -135,23 +179,37 @@
           </div>
 
           <div class="form-group">
+            <label>Vara oli lukustatud ruumis</label>
+            <p>
+            <input  type="checkbox" required="" >
+          </div>
+
+          <div class="form-group">
             <label>Vara valdus olemas (viimati kannatanul/teatajal ese/asi olemas)</label>
+            <p>
+           <label>Kuupäev</label>
             <div class='input-group date datetimepicker'>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-              <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                <input type='text' class="form-control" />
             </div>
+            <label>Kellaaeg</label>
+            <input class="form-control" type="text" required="">
           </div>
 
           <div class="form-group">
             <label>Vara valdusest väljaminek on tuvastatud (polnud enam eset/asja teatajal/kannatanul olemas)</label>
+            <p>
+            <label>Kuupäev</label>
             <div class='input-group date datetimepicker'>
-              <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-              <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                <input type='text' class="form-control" />
             </div>
+            <label>Kellaaeg</label>
+            <input class="form-control" type="text" required="">
           </div>
 
           <div class="form-group">
@@ -159,18 +217,180 @@
             <textarea class="form-control" name="name" rows="4"></textarea>
           </div>
         </div>
-      </form>
+        
+      
 
-      <div>
-        <h3>Süüteo toime pannud isiku(te) andmed</h3>
-        TODO BASED ON TEATAJA ANDMED
-      </div>
-      <div>
+    
+        
+        <div id="criminal-information">
+            <h3>Süüteo toime pannud isiku(te) andmed</h3>
+
+            <div class="row">
+            <div class="col-md-12">
+            <div class="form-group">
+              <label>Eesnimi</label>
+              <input class="form-control" type="text" required="">
+            </div>
+
+            <div class="form-group">
+              <label>Perekonnanimi</label>
+              <input class="form-control" type="text" required="">
+            </div>
+            </div>
+            <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Isikukood</label>
+                    <input class="form-control" type="text" required="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Sünniaeg</label>
+                    <div class='input-group date datepicker'>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        <input type='text' class="form-control" />
+                    </div>
+                    
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                      <label>Kodakondsus</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">     
+                    <div class="form-group">
+                      <label>Amet</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>   
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>Telefon</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">      
+                    <div class="form-group">
+                      <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>E-mail </label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-12">  
+                    <div class="form-group">
+                      <label>Tundemärgid (sh sugu, vanus, kirjeldus, riietus jne)</label>
+                      <textarea class="form-control" name="name" rows="4"></textarea>
+                    </div>
+                </div>
+              </div>
+              </div>
+              
+            
+ 
+      <div id="witness-information">
         <h3>Tunnistaja(te) andmed</h3>
-        TODO BASED ON TEATAJA ANDMED
+
+            <div class="row">
+            <div class="col-md-12">
+            <div class="form-group">
+              <label>Eesnimi</label>
+              <input class="form-control" type="text" required="">
+            </div>
+
+            <div class="form-group">
+              <label>Perekonnanimi</label>
+              <input class="form-control" type="text" required="">
+            </div>
+            </div>
+            <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Isikukood</label>
+                    <input class="form-control" type="text" required="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Sünniaeg</label>
+                    <div class='input-group date datepicker'>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        <input type='text' class="form-control" />
+                    </div>
+                    
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                      <label>Kodakondsus</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">     
+                    <div class="form-group">
+                      <label>Amet</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>   
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>Telefon</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">      
+                    <div class="form-group">
+                      <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">  
+                    <div class="form-group">
+                      <label>E-mail </label>
+                      <input class="form-control" type="text" required="">
+                    </div>
+                </div>
+              </div> 
+          </div>
+      
+      <div id="agreement-checks">
+        <div class="form-group">
+            <label>Olen nõus kokkuleppemenetlusega </label>
+            <p>
+            <input  type="checkbox" required="" >
+        </div>
+        <div class="form-group">
+            <label>Olen nõus, et menetlusega seotud dokumendid edastatakse minu poolt antud e-posti aadressile </label>
+            <p>
+            <input  type="checkbox" required="" >
+        </div>
+        <div class="form-group">
+            <label>Soovin teavet E-Toimiku kaudu <a href="https://www.e-toimik.ee/">https://www.e-toimik.ee/</a> </label>
+            <p>
+            <input  type="checkbox" required="" >
+        </div>
+
       </div>
-    </div>
+
+      <div id="send-buttons">
+        <button type="button" class="btn btn-primary active btn-block">Saada Digitaalallkirjaga</button>
+        <button type="button" class="btn btn-primary active btn-block">Saada Digitaalallkirjata</button>
+      </div>
   </div>
+  </div>
+  </div>
+
   <script type="text/javascript">
     $(document).ready(function () {
       $('.datepicker').datetimepicker({
