@@ -36,99 +36,23 @@
 
         <form class="parsley-form" data-parsley-validate data-parsley-focus="first">
             <div class="col-md-12">
-                <div id="person-information">
-                    <h3>Teataja</h3>
-
-                    <div class="form-group">
-                        <label>Eesnimi</label>
-                        <input id='firstName' class="form-control" type="text" data-parsley-required data-parsley-trigger="input">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Perekonnanimi</label>
-                        <input class="form-control" type="text" required="">
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Isikukood</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Sünniaeg</label>
-                                <div class='input-group date datepicker'>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                                    <input type='text' class="form-control"/>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Kodakondsus</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Amet</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>E-mail uuesti</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
                 <div>
                     <h3>Sündmus</h3>
 
                     <div class="form-group">
-                        <label>Kuupäev</label>
+                        <label>Kuupäev ja kellaeg, millal sündmus toimus</label>
                         <div class='input-group date datetimepicker'>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                            <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
                             <input type='text' class="form-control"/>
                         </div>
-                        <label>Kellaaeg</label>
-                        <input class="form-control" type="text" required="">
-                        </select>
                     </div>
 
                     <div class="form-group">
                         <label>Riik</label>
-                        <select class="input-group" id="countries"></select>
+                        <select class="input-group countries" style="width:100%;"></select>
 
                     </div>
 
@@ -159,9 +83,9 @@
 
                 </div>
 
-                <div>
-                    <h3>Ära võetud/viidud/saamata jäänud vara</h3>
-
+                <div id="item-data" class="hidden">
+                  <span class="glyphicon glyphicon-remove remove-entry"></span>
+                  <h4>Vara</h4>
                     <div class="form-group">
                         <label>Eseme nimetus</label>
                         <input class="form-control" type="text" required="">
@@ -187,32 +111,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Vara valdus olemas (viimati kannatanul/teatajal ese/asi olemas)</label>
-                        <p>
-                            <label>Kuupäev</label>
+                        <label>Kuupäev ja kellaeg, millal oli vara valdus olemas (viimati kannatanul/teatajal ese/asi olemas)</label>
                         <div class='input-group date datetimepicker'>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                            <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
                             <input type='text' class="form-control"/>
                         </div>
-                        <label>Kellaaeg</label>
-                        <input class="form-control" type="text" required="">
                     </div>
 
                     <div class="form-group">
-                        <label>Vara valdusest väljaminek on tuvastatud (polnud enam eset/asja teatajal/kannatanul
+                        <label>Kuupäev ja kellaeg, millal vara valdusest väljaminek on tuvastatud (polnud enam eset/asja teatajal/kannatanul
                             olemas)</label>
-                        <p>
-                            <label>Kuupäev</label>
                         <div class='input-group date datetimepicker'>
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                            <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
                             <input type='text' class="form-control"/>
                         </div>
-                        <label>Kellaaeg</label>
-                        <input class="form-control" type="text" required="">
                     </div>
 
                     <div class="form-group">
@@ -221,146 +137,175 @@
                     </div>
                 </div>
 
+                <div>
+                    <h3>Ära võetud/viidud/saamata jäänud vara</h3>
 
-                <div id="criminal-information">
-                    <h3>Süüteo toime pannud isiku(te) andmed</h3>
+                    <div class="col-md-12" id="items">
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Eesnimi</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Perekonnanimi</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Isikukood</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Sünniaeg</label>
-                                <div class='input-group date datepicker'>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                                    <input type='text' class="form-control"/>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Kodakondsus</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Amet</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>E-mail </label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Tundemärgid (sh sugu, vanus, kirjeldus, riietus jne)</label>
-                                <textarea class="form-control" name="name" rows="4"></textarea>
-                            </div>
-                        </div>
                     </div>
+                    <button type="button" class="btn btn-primary active btn-block" name="button" id="add-item">
+                      Lisa vara
+                    </button>
                 </div>
 
 
+                <div id="criminal-data" class="hidden">
+                  <span class="glyphicon glyphicon-remove remove-entry"></span>
+                  <h4>Süüteo toime pannud isik</h4>
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label>Eesnimi</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+
+                          <div class="form-group">
+                              <label>Perekonnanimi</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Isikukood</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Sünniaeg</label>
+                              <div class='input-group date datepicker'>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                                  <input type='text' class="form-control"/>
+                              </div>
+
+                          </div>
+
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Kodakondsus</label>
+                              <select class="input-group countries" style="width:100%;"></select>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Amet</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Telefon</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>E-mail </label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label>Tundemärgid (sh sugu, vanus, kirjeldus, riietus jne)</label>
+                              <textarea class="form-control" name="name" rows="4"></textarea>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div id="criminal-information">
+                    <h3>Süüteo toime pannud isiku(te) andmed</h3>
+                    <div class="col-md-12" id="criminals">
+
+                    </div>
+                    <button type="button" class="btn btn-primary active btn-block" name="button" id="add-criminal">
+                      Lisa isik
+                    </button>
+
+                </div>
+
+                <div id="witness-data" class="hidden">
+                  <span class="glyphicon glyphicon-remove remove-entry"></span>
+                  <h4>Tunnistaja</h4>
+                  <div class="row witness">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label>Eesnimi</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+
+                          <div class="form-group">
+                              <label>Perekonnanimi</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Isikukood</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Sünniaeg</label>
+                              <div class='input-group date datepicker'>
+                                  <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                                  <input type='text' class="form-control"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Kodakondsus</label>
+                              <select class="input-group countries" style="width:100%;"></select>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Amet</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Telefon</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>E-mail </label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
                 <div id="witness-information">
                     <h3>Tunnistaja(te) andmed</h3>
+                    <div class="col-md-12" id="witnesses">
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Eesnimi</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Perekonnanimi</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Isikukood</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Sünniaeg</label>
-                                <div class='input-group date datepicker'>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                                    <input type='text' class="form-control"/>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Kodakondsus</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Amet</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Telefon</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>E-mail </label>
-                                <input class="form-control" type="text" required="">
-                            </div>
-                        </div>
                     </div>
+                    <button type="button" class="btn btn-primary active btn-block" name="button" id="add-witness">
+                      Lisa tunnistaja
+                    </button>
                 </div>
 
                 <div id="agreement-checks">
@@ -383,10 +328,92 @@
                     </div>
 
                 </div>
+                <div>
+                  <h3>Kontaktandmed</h3>
 
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input class="form-control" type="text" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
+                            <input class="form-control" type="text" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
+                            <input class="form-control" type="text" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail uuesti</label>
+                            <input class="form-control" type="text" required="">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="person-information" class="hidden">
+                  <h3>Teataja andmed</h3>
+                  <div class="form-group">
+                      <label>Eesnimi</label>
+                      <input id='firstName' class="form-control" type="text" data-parsley-required data-parsley-trigger="input">
+                  </div>
+
+                  <div class="form-group">
+                      <label>Perekonnanimi</label>
+                      <input class="form-control" type="text" required="">
+                  </div>
+
+
+                  <div class="row">
+
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Kodakondsus</label>
+                              <select class="input-group countries" style="width:100%;"></select>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Amet</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                        <p>
+                          Täitke vähemalt üks järgmistest:
+                        </p>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Isikukood</label>
+                              <input class="form-control" type="text" required="">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Sünniaeg</label>
+                              <div class='input-group date datepicker'>
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                                  <input type='text' class="form-control"/>
+                              </div>
+
+                          </div>
+                                                </div>
+                  </div>
+                </div>
                 <div id="send-buttons">
-                    <button type="button" class="btn btn-primary active btn-block">Saada Digitaalallkirjaga</button>
-                    <button type="button" class="btn btn-primary active btn-block">Saada Digitaalallkirjata</button>
+                    <button type="button" id="with-id" class="btn btn-primary active btn-block">Kinnitan ja allkirjastan ID kaardiga</button>
+                    <button type="button" id="without-id" class="btn btn-primary active btn-block">Kinnitan allkirjastamata</button>
                 </div>
             </div>
         </form>
@@ -394,17 +421,61 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.datepicker').datetimepicker({
             format: 'DD.MM.YYYY'
         });
         $('.datetimepicker').datetimepicker({
             format: 'DD.MM.YYYY HH:mm'
         });
-        $('#countries').select2({
+        $('.countries').select2({
             allowClear: true,
             placeholder: "",
-            data: ["Eesti Vabariik", "Afganistan", "Ahvenamaa", "Albaania", "Alžeeria", "Ameerika Samoa", "Ameerika Ühendriigid", "Andorra", "Angola", "Anguilla", "Antarktis", "Antigua ja Barbuda", "Aomen", "Araabia Ühendemiraadid", "Argentina", "Armeenia", "Aruba", "Aserbaidžaan", "Austraalia", "Austria", "Bahama", "Bahrein", "Bangladesh", "Barbados", "Belau", "Belgia", "Belize", "Benin", "Bermuda", "Bhutan", "Boliivia Paljurahvuseline Riik", "Bonaire, Sint Eustatius ja Saba", "Bosnia- ja Hertsegoviina", "Botswana", "Bouvet' saar", "Brasiilia", "Briti India ookeani ala", "Briti Neitsisaared", "Brunei Darussalam", "Bulgaaria", "Burkina Faso", "Burundi", "Colombia", "Cooki saared", "Costa Rica", "Curaçao", "Curaçao (Holl)", "Djibouti", "Dominica", "Dominikaani Vabariik", "Ecuador", "Egiptus", "Ekvatoriaal-Guinea", "El Salvador", "Elevandiluurannik", "Eritrea Riik", "Etioopia", "Falklandi (Malviini) saared", "Fidži", "Filipiini Vabariik", "Fääri saared", "Gabon", "Gambia", "Ghana", "Gibraltar", "Grenada", "Gruusia", "Gröönimaa", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guernsey (GBR)", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard ja McDonald", "Hiina", "Hispaania", "Holland", "Hollandi Antillid", "Honduras", "Hongkong", "Horvaatia", "Ida-Timori", "Ida-Timori", "Iirimaa", "Iisrael", "ilma kodakondsuseta", "India", "Indoneesia", "Iraak", "Iraan", "Island", "Itaalia", "Jaapan", "Jamaica", "Jeemen", "Jersey", "JEY", "Jordaania", "Jugoslaavia", "Jõulusaar", "Kaimanisaared (GBR)", "Kambodža", "Kamerun", "Kanada", "Kasahstan", "Katar", "Kenya", "Kesk-Aafrika Vabariik", "Kiribati", "Komoori Liit", "Kongo", "Kongo DV", "Kookossaared (Keelingi saared)", "Korea RDV", "Korea Vabariik", "Kosovo", "Kreeka", "Kuuba", "Kuveit", "Kõrgõzstan", "Küpros", "Laos", "Leedu", "Lesotho", "Libeeria", "Liechtenstein", "Liibanon", "Liibüa", "Luksemburg", "Lõuna-Aafrika Vabariik", "Lõuna-Georgia ja Lõuna-Sandwich", "Lõuna-Sudaan", "Läti Vabariik", "Lääne-Sahara", "Madagaskar", "Makedoonia", "Malaisia", "Malawi", "Maldiivid", "Mali", "Malta", "Mani saar", "Maroko", "Marshalli Saared", "Martinique", "Mauritaania", "Mauritius", "Mayotte", "Mehhiko", "Mikroneesia", "Moldova", "Monaco", "Mongoolia", "Montenegro", "Montserrat", "Mosambiik", "Myanmar", "Namiibia", "Nauru", "Nepal", "Nicaragua", "Nigeeria", "Niger", "Niue", "Norfolki Saar", "Norra", "Omaan", "Paapua Uus-Guinea", "Pakistan", "Palestiina okupeeritud alad", "Panama", "Paraguay", "Peruu", "Pitcairn", "Poola", "Portugali", "Prantsuse Guajaana", "Prantsuse Lõunaalad", "Prantsuse Polüneesia", "Prantsusmaa", "Puerto Rico", "Põhja-Mariaanid", "Püha Tool (Vatikan)", "Réunion", "Riik teadmata", "Roheneemesaared", "Rootsi Kuningriik", "Rumeenia", "Rwanda", "Saalomoni Saared", "Saint Helena, Ascension ja Tristan da Cunha (GBR)", "Saint Kitts ja Nevis", "Saint Lucia", "Saint Pierre ja Miquelon", "Saint Vincent ja Grenadiinid", "Saint-Barthélemy (FRA)", "Saint-Martin (Prantsuse osa) (FRA)", "Saksamaa", "Sambia", "Samoa", "San Marino", "Sao Tomé ja Principe", "Saudi Araabia", "Seišellid", "Senegal", "Serbia", "Sierra Leone", "Singapur", "Sint Marteen (Hollandi osa)", "Slovakkia", "Sloveenia", "Somaali Vabariik", "Soome", "Sri Lanka", "Sudaan", "Suriname", "Suurbritannia", "Svaasimaa", "Svalbard ja Jan Mayen", "Süüria", "Šveits", "Zimbabwe", "Taani", "Tadžikistan", "Tai", "Taiwan", "Tansaania", "Togo", "Tokelau", "Tonga", "Trinidad ja Tobago", "Tšaad", "Tšehhi", "Tšiili", "Tuneesia", "Turks ja Caicos", "Tuvalu", "Türgi", "Türkmenistan", "Uganda", "Ukraina", "Ungari", "Uruguay", "USA Neitsisaared", "Usbekistan", "Uus-Kaledoonia", "Uus-Meremaa", "Valgevene", "Wallis ja Futuna", "Vanuatu", "Venemaa Föderatsioon", "Venezuela", "Vietnam", "Ühendriikide hajasaared", "Mujal nimetamata territooriumid", "Määratlemata"]
+            data: ["Eesti Vabariik", "Määratlemata", "Afganistan", "Ahvenamaa", "Albaania", "Alžeeria", "Ameerika Samoa", "Ameerika Ühendriigid", "Andorra", "Angola", "Anguilla", "Antarktis", "Antigua ja Barbuda", "Aomen", "Araabia Ühendemiraadid", "Argentina", "Armeenia", "Aruba", "Aserbaidžaan", "Austraalia", "Austria", "Bahama", "Bahrein", "Bangladesh", "Barbados", "Belau", "Belgia", "Belize", "Benin", "Bermuda", "Bhutan", "Boliivia Paljurahvuseline Riik", "Bonaire, Sint Eustatius ja Saba", "Bosnia- ja Hertsegoviina", "Botswana", "Bouvet' saar", "Brasiilia", "Briti India ookeani ala", "Briti Neitsisaared", "Brunei Darussalam", "Bulgaaria", "Burkina Faso", "Burundi", "Colombia", "Cooki saared", "Costa Rica", "Curaçao", "Curaçao (Holl)", "Djibouti", "Dominica", "Dominikaani Vabariik", "Ecuador", "Egiptus", "Ekvatoriaal-Guinea", "El Salvador", "Elevandiluurannik", "Eritrea Riik", "Etioopia", "Falklandi (Malviini) saared", "Fidži", "Filipiini Vabariik", "Fääri saared", "Gabon", "Gambia", "Ghana", "Gibraltar", "Grenada", "Gruusia", "Gröönimaa", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guernsey (GBR)", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard ja McDonald", "Hiina", "Hispaania", "Holland", "Hollandi Antillid", "Honduras", "Hongkong", "Horvaatia", "Ida-Timori", "Ida-Timori", "Iirimaa", "Iisrael", "India", "Indoneesia", "Iraak", "Iraan", "Island", "Itaalia", "Jaapan", "Jamaica", "Jeemen", "Jersey", "JEY", "Jordaania", "Jugoslaavia", "Jõulusaar", "Kaimanisaared (GBR)", "Kambodža", "Kamerun", "Kanada", "Kasahstan", "Katar", "Kenya", "Kesk-Aafrika Vabariik", "Kiribati", "Komoori Liit", "Kongo", "Kongo DV", "Kookossaared (Keelingi saared)", "Korea RDV", "Korea Vabariik", "Kosovo", "Kreeka", "Kuuba", "Kuveit", "Kõrgõzstan", "Küpros", "Laos", "Leedu", "Lesotho", "Libeeria", "Liechtenstein", "Liibanon", "Liibüa", "Luksemburg", "Lõuna-Aafrika Vabariik", "Lõuna-Georgia ja Lõuna-Sandwich", "Lõuna-Sudaan", "Läti Vabariik", "Lääne-Sahara", "Madagaskar", "Makedoonia", "Malaisia", "Malawi", "Maldiivid", "Mali", "Malta", "Mani saar", "Maroko", "Marshalli Saared", "Martinique", "Mauritaania", "Mauritius", "Mayotte", "Mehhiko", "Mikroneesia", "Moldova", "Monaco", "Mongoolia", "Montenegro", "Montserrat", "Mosambiik", "Myanmar", "Namiibia", "Nauru", "Nepal", "Nicaragua", "Nigeeria", "Niger", "Niue", "Norfolki Saar", "Norra", "Omaan", "Paapua Uus-Guinea", "Pakistan", "Palestiina okupeeritud alad", "Panama", "Paraguay", "Peruu", "Pitcairn", "Poola", "Portugali", "Prantsuse Guajaana", "Prantsuse Lõunaalad", "Prantsuse Polüneesia", "Prantsusmaa", "Puerto Rico", "Põhja-Mariaanid", "Püha Tool (Vatikan)", "Réunion", "Riik teadmata", "Roheneemesaared", "Rootsi Kuningriik", "Rumeenia", "Rwanda", "Saalomoni Saared", "Saint Helena, Ascension ja Tristan da Cunha (GBR)", "Saint Kitts ja Nevis", "Saint Lucia", "Saint Pierre ja Miquelon", "Saint Vincent ja Grenadiinid", "Saint-Barthélemy (FRA)", "Saint-Martin (Prantsuse osa) (FRA)", "Saksamaa", "Sambia", "Samoa", "San Marino", "Sao Tomé ja Principe", "Saudi Araabia", "Seišellid", "Senegal", "Serbia", "Sierra Leone", "Singapur", "Sint Marteen (Hollandi osa)", "Slovakkia", "Sloveenia", "Somaali Vabariik", "Soome", "Sri Lanka", "Sudaan", "Suriname", "Suurbritannia", "Svaasimaa", "Svalbard ja Jan Mayen", "Süüria", "Šveits", "Zimbabwe", "Taani", "Tadžikistan", "Tai", "Taiwan", "Tansaania", "Togo", "Tokelau", "Tonga", "Trinidad ja Tobago", "Tšaad", "Tšehhi", "Tšiili", "Tuneesia", "Turks ja Caicos", "Tuvalu", "Türgi", "Türkmenistan", "Uganda", "Ukraina", "Ungari", "Uruguay", "USA Neitsisaared", "Usbekistan", "Uus-Kaledoonia", "Uus-Meremaa", "Valgevene", "Wallis ja Futuna", "Vanuatu", "Venemaa Föderatsioon", "Venezuela", "Vietnam", "Ühendriikide hajasaared", "Mujal nimetamata territooriumid"]
+        });
+        $('#without-id').click(function() {
+          var person = $('#person-information');
+          if (person.hasClass("hidden")) {
+            person.removeClass("hidden");
+          } else {
+            // $('from').submit();
+          }
+        });
+        $('#add-witness').click(function() {
+          var witnessData = $('#witness-data')
+            .clone()
+            .removeClass('hidden')
+            .removeAttr('id');
+          witnessData.find('.remove-entry')
+            .click(function(event) {
+              console.log(event.target);
+              $(event.target).parent().remove();
+            });
+          $("#witnesses").append(witnessData);
+        });
+        $('#add-criminal').click(function() {
+          var witnessData = $('#criminal-data')
+            .clone()
+            .removeClass('hidden')
+            .removeAttr('id');
+          witnessData.find('.remove-entry')
+            .click(function(event) {
+              console.log(event.target);
+              $(event.target).parent().remove();
+            });
+          $("#criminals").append(witnessData);
+        });
+        $('#add-item').click(function() {
+          var witnessData = $('#item-data')
+            .clone()
+            .removeClass('hidden')
+            .removeAttr('id');
+          witnessData.find('.remove-entry')
+            .click(function(event) {
+              console.log(event.target);
+              $(event.target).parent().remove();
+            });
+          $("#items").append(witnessData);
         });
     });
 </script>
