@@ -1,8 +1,50 @@
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
+
 .remove-entry {
-  float: right;
-  font-size: 20px;
-  cursor: pointer;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
 }
+
+.parsley-error {
+    color: #B94A48 !important;
+    background-color: #F2DEDE !important;
+    border: 1px solid #EED3D7 !important;
+}
+
+.parsley-success {
+    color: #52b941 !important;
+    background-color: #c9f2c4 !important;
+    border: 1px solid #b0eec3 !important;
+}
+
+.add-button {
+    background-color: #2cee00 !important;
+    border-color: #2cee00 !important;
+}
+
+.submit-button {
+    background-color: #c0ee52 !important;
+    border-color: #516e1f !important;
+}
+
+.important-text {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.critical-text {
+    color: red;
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+input[type='checkbox'] {
+    width: 25px;
+    height: 25px;
+}
+
+/*
+required fields are all bold-ish
+*/
