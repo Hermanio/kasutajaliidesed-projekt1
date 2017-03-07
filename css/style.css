@@ -45,6 +45,10 @@ input[type='checkbox'] {
     height: 25px;
 }
 
+.required-input-area {
+    background: #98979e;
+    font-weight: bold;
+}
 /*
 required fields are all bold-ish
 */

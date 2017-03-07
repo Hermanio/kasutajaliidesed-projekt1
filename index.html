@@ -29,14 +29,15 @@
 
 <body>
 
-
 <div class="container">
     <div class="col-12-xs">
         <div class="">
             <h1>Politseile avalduse esitamine</h1>
             <p class="important-text">
                 <span class="critical-text"> Kui kellegi elu või tervis on vahetult ohus, siis helista viivitamatult hädaabinumbrile 112.</span>
-                Ära kasuta seda ankeeti raskest ja/või isikuvastasest kuriteost (vägistamine, tapmine, kehaline väärkohtlemine - löömine, peksmine vm) teatamiseks. Raskest kuriteost teada andmiseks pöördu lähimasse politseijaoskonda.
+                Ära kasuta seda ankeeti raskest ja/või isikuvastasest kuriteost (vägistamine, tapmine, kehaline
+                väärkohtlemine - löömine, peksmine vm) teatamiseks. Raskest kuriteost teada andmiseks pöördu lähimasse
+                politseijaoskonda.
             </p>
             <p class="important-text">
                 Võimalusel allkirjasta vorm digitaalselt. Nii on kindel, kes selle esitas.
@@ -57,45 +58,44 @@
 
                     <div class="form-group">
                         <label>Kuupäev ja kellaeg, millal sündmus toimus</label>
-                        <div id='firstdatetimepicker' class='input-group date datetimepicker' >
-                            <span  class="input-group-addon">
+                        <div id='firstdatetimepicker' class='input-group date datetimepicker'>
+                            <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <input id="eventDateTime" type='text' class="form-control"  data-parsley-datetimepicker/>
+                            <input id="eventDateTime" type='text' class="form-control" data-parsley-validate-if-empty data-parsley-datetimepicker/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Riik</label>
-                        <select class="input-group countries" style="width:100%;" data-parsley-required></select>
+                        <select id="eventCountry" class="input-group countries" style="width:100%;" data-parsley-required></select>
 
                     </div>
 
                     <div class="form-group">
                         <label>Aadress</label>
-                        <input class="form-control" type="text">
-
+                        <input id='eventAddress' class="form-control" type="text">
 
                     </div>
                     <div class="form-group">
                         <label>Toimumise koht (nt park, kauplus, internet vms)</label>
-                        <input class="form-control" type="text">
+                        <input id="eventPlaceOfAction" class="form-control" type="text">
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group required-input-area">
                         <label>Sündmuse kirjeldus</label>
-                        <textarea class="form-control" name="name" rows="4" data-parsley-required data-parsley-required-message="Sündmuse kirjeldus on kohustuslik!"></textarea>
+                        <textarea id='eventDescription' class="form-control" name="name" rows="4" data-parsley-required
+                                  data-parsley-required-message="Sündmuse kirjeldus on kohustuslik!"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Tekitatud varaline kahju</label>
                         <div class="input-group">
                             <span class="input-group-addon">€</span>
-                            <input type="text" class="form-control">
+                            <input id='eventDamageCost' type="text" class="form-control">
                         </div>
                     </div>
-
                 </div>
 
                 <div id="item-data" class="hidden">
@@ -108,7 +108,7 @@
 
                     <div class="form-group">
                         <label>Soetamise aasta</label>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="number" data-parsley-type="integer">
                     </div>
 
                     <div class="form-group">
@@ -120,9 +120,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Vara oli lukustatud ruumis</label>
+                        <label><input type="checkbox">Vara oli lukustatud ruumis</label>
                         <p>
-                            <input type="checkbox">
+
                     </div>
 
                     <div class="form-group">
@@ -160,11 +160,11 @@
                     <div class="col-md-12" id="items">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button" id="add-item">
-                       <span class="glyphicon glyphicon-plus"></span> Lisa vara
+                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                            id="add-item">
+                        <span class="glyphicon glyphicon-plus"></span> Lisa vara
                     </button>
                 </div>
-
 
                 <div id="criminal-data" class="hidden">
                     <span class="glyphicon glyphicon-remove remove-entry"></span>
@@ -184,7 +184,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Isikukood</label>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="number" data-parsley-type="integer">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -227,7 +227,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>E-mail </label>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" data-parsley-type="email">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -244,8 +244,9 @@
                     <div class="col-md-12" id="criminals">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button" id="add-criminal">
-                       <span class="glyphicon glyphicon-plus"></span> Lisa isik
+                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                            id="add-criminal">
+                        <span class="glyphicon glyphicon-plus"></span> Lisa isik
                     </button>
 
                 </div>
@@ -268,7 +269,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Isikukood</label>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="number" data-parsley-type="integer">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -309,38 +310,39 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>E-mail </label>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" data-parsley-type="email">
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div id="witness-information">
                     <h3>Tunnistaja(te) andmed</h3>
                     <div class="col-md-12" id="witnesses">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button" id="add-witness">
+                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                            id="add-witness">
                         <span class="glyphicon glyphicon-plus"></span>Lisa tunnistaja
                     </button>
                 </div>
 
                 <div id="agreement-checks">
                     <div class="form-group">
-                        <label><input type="checkbox">Olen nõus kokkuleppemenetlusega </label>
+                        <label><input id='eventSettlement' type="checkbox">Olen nõus kokkuleppemenetlusega </label>
                         <p>
 
                     </div>
                     <div class="form-group">
-                        <label><input type="checkbox">Olen nõus, et menetlusega seotud dokumendid edastatakse minu poolt antud e-posti
+                        <label><input id="eventEmailInformationSendingConfirmation" type="checkbox">Olen nõus, et menetlusega seotud dokumendid edastatakse minu poolt
+                            antud e-posti
                             aadressile </label>
                         <p>
 
                     </div>
                     <div class="form-group">
-                        <label><input type="checkbox">Soovin teavet E-Toimiku kaudu <a
-                               href="https://www.e-toimik.ee/">https://www.e-toimik.ee/</a> </label>
+                        <label><input id="eventInformationViaEToimik" type="checkbox">Soovin teavet E-Toimiku kaudu <a
+                                href="https://www.e-toimik.ee/">https://www.e-toimik.ee/</a> </label>
                         <p>
 
                     </div>
@@ -351,32 +353,34 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>Telefon</label>
-                                <input class="form-control" type="text" data-parsley-required>
+                                <input id="contactPhoneNumber" class="form-control" type="text" data-parsley-required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
-                                <input class="form-control" type="text">
+                                <input id="contactAddress" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <p class="important-text">Kui e-posti aadress on ôige, siis peaksid süüteoteate koopia päeva jooksul sisestatud e-posti aadressile saama, mis tähendab, et avaldus on politseini jõudnud. Kui seda ei juhtu, siis palun võta ühendust aadressil ppa@politsei.ee.
+                            <p class="important-text">Kui e-posti aadress on ôige, siis peaksid süüteoteate koopia päeva
+                                jooksul sisestatud e-posti aadressile saama, mis tähendab, et avaldus on politseini
+                                jõudnud. Kui seda ei juhtu, siis palun võta ühendust aadressil ppa@politsei.ee.
                             </p>
                         </div>
                         <div class="col-md-6">
 
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
-                                <input class="form-control" type="text" data-parsley-required>
+                                <input id="contactEmail" class="form-control" type="text" data-parsley-required data-parsley-type="email">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>E-mail uuesti</label>
-                                <input class="form-control" type="text" data-parsley-required>
+                                <input id="contactEmailCheck" class="form-control" type="text" data-parsley-required data-parsley-type="email">
                             </div>
                         </div>
                     </div>
@@ -384,29 +388,29 @@
 
                 <div id="person-information" class="hidden">
                     <h3>Teataja andmed</h3>
-                    <div class="form-group">
+                    <div class="form-group required-input-area">
                         <label>Eesnimi</label>
                         <input id='submitterFirstName' class="form-control" type="text">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group required-input-area">
                         <label>Perekonnanimi</label>
                         <input id="submitterLastName" class="form-control" type="text">
                     </div>
 
-
                     <div class="row">
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>Kodakondsus</label>
-                                <select id="submitterCitizenship" class="input-group countries" style="width:100%;"></select>
+                                <select id="submitterCitizenship" class="input-group countries"
+                                        style="width:100%;"></select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Amet</label>
-                                <input class="form-control" type="text">
+                                <input id="submitterJobTitle" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -415,19 +419,20 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>Isikukood</label>
-                                <input id="submitterPIN" class="form-control" type="text">
+                                <input id="submitterPIN" class="form-control" type="number" data-parsley-type="integer">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group required-input-area">
                                 <label>Sünniaeg</label>
                                 <div id='birthdatetimepicker' class='input-group date datepicker'>
                               <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                               </span>
-                                    <input id="submitterTimeOfBirth" type='text' class="form-control" data-parsley-datepicker/>
+                                    <input id="submitterTimeOfBirth" type='text' class="form-control"
+                                           data-parsley-datepicker/>
                                 </div>
 
                             </div>

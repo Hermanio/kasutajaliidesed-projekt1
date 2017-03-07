@@ -11,6 +11,8 @@ $(document).ready(
 
 function setBaseValidators() {
     addDateTimeValidators();
+
+
 }
 
 
@@ -165,3 +167,72 @@ function initEvents() {
         $("#items").append(witnessData);
     });
 }
+
+/*
+* levels of validation
+* required
+* email verification
+* isikukood maxlen and numbers only
+*
+* */
+
+/*
+* IDs and verification needed
+* eventDateTime - customNotInFuture
+* eventCountry
+* eventAddress
+* eventPlaceOfAction
+* eventDescription - required
+* eventDamageCost
+* eventSettlement
+* eventEmailInformationSendingConfirmation
+* eventInformationViaEToimik
+* contactPhoneNumber - required
+* contactAddress
+* contactEmail required customEmailEqualCheckValidator
+* contactEmailCheck required customEmailEqualCheckValidator
+*
+* if no id
+* submitterFirstName required
+* submitterLastName required
+* submitterCitizenship required
+* submitterJobTitle
+* submitterPIN (isikukood) required numeric
+* submitterTimeOfBirth required customNotInFuture
+*
+* item data related stuff (no way to assign id unless OOP stuff.
+* item name
+* item year of purchase
+* item approximate current value in euros
+* item was in a locked room
+* last date and time of possession of said item
+* date and time of moment that the item was declared lost
+* differentiating properties
+*
+* criminal data (person who did bad stuff)
+* criminal first name
+* criminal last name
+* criminal PIN
+* criminal date of birth
+* criminal citizenship
+* criminal job title
+* criminal phone number
+* criminal address
+* criminal email
+* criminal identifying features
+*
+*
+* Witness related data
+* witness first name
+* witness last name
+* witness PIN
+* witness time of birth
+* witness citizenship
+* witness job title
+* witness phone number
+* witness address
+* witness email
+*
+*
+*
+* */
