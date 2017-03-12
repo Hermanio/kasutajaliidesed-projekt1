@@ -32,10 +32,10 @@
 <div class="container">
     <div class="col-12-xs">
         <div class="">
-            <h1>Politseile avalduse esitamine</h1>
+            <h1 id="form-heading">Politseile avalduse esitamine</h1>
             <p class="important-text">
                 <span class="critical-text"> Kui kellegi elu või tervis on vahetult ohus, siis helista viivitamatult hädaabinumbrile 112.</span>
-				<br/>
+                <br/>
                 Ära kasuta seda ankeeti raskest ja/või isikuvastasest kuriteost (vägistamine, tapmine, kehaline
                 väärkohtlemine - löömine, peksmine vm) teatamiseks. Raskest kuriteost teada andmiseks pöördu lähimasse
                 politseijaoskonda.
@@ -63,13 +63,14 @@
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <input id="eventDateTime" type='text' class="form-control" data-parsley-validate-if-empty data-parsley-datetimepicker/>
+                            <input id="eventDateTime" type='text' class="form-control" data-parsley-validate-if-empty
+                                   data-parsley-datetimepicker/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Riik</label>
-                        <select id="eventCountry" class="input-group countries" style="width:100%;" data-parsley-required></select>
+                        <select id="eventCountry" class="input-group countries" style="width:100%;"></select>
 
                     </div>
 
@@ -86,8 +87,8 @@
 
                     <div class="form-group required-input-area">
                         <label>Sündmuse kirjeldus</label>
-                        <textarea id='eventDescription' class="form-control" name="name" rows="4" data-parsley-required
-                                  data-parsley-required-message="Sündmuse kirjeldus on kohustuslik!"></textarea>
+                        <textarea id='eventDescription' class="form-control" name="name" rows="4"
+                        ></textarea>
                     </div>
 
                     <div class="form-group">
@@ -335,7 +336,8 @@
 
                     </div>
                     <div class="form-group">
-                        <label><input id="eventEmailInformationSendingConfirmation" type="checkbox">Olen nõus, et menetlusega seotud dokumendid edastatakse minu poolt
+                        <label><input id="eventEmailInformationSendingConfirmation" type="checkbox">Olen nõus, et
+                            menetlusega seotud dokumendid edastatakse minu poolt
                             antud e-posti
                             aadressile </label>
                         <p>
@@ -356,7 +358,7 @@
                         <div class="col-md-6">
                             <div class="form-group required-input-area">
                                 <label>Telefon</label>
-                                <input id="contactPhoneNumber" class="form-control" type="text" data-parsley-required>
+                                <input id="contactPhoneNumber" class="form-control" type="text">
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -375,13 +377,14 @@
 
                             <div class="form-group required-input-area">
                                 <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
-                                <input id="contactEmail" class="form-control" type="text" data-parsley-required data-parsley-type="email">
+                                <input id="contactEmail" class="form-control" type="text" data-parsley-type="email">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group required-input-area">
                                 <label>E-mail uuesti</label>
-                                <input id="contactEmailCheck" class="form-control" type="text" data-parsley-required data-parsley-type="email">
+                                <input id="contactEmailCheck" class="form-control" type="text"
+                                       data-parsley-type="email">
                             </div>
                         </div>
                     </div>
@@ -441,9 +444,13 @@
                     </div>
                 </div>
                 <div id="send-buttons">
-                    <button type="button" id="with-id" class="btn btn-primary active btn-block">Kinnitan ja allkirjastan ID kaardiga
+                    <button type="button" id="with-id" class="btn btn-primary active btn-block">
+                        <img id='id-card-icon' src="http://www.id.ee/public/.thumbnails/id-logo-suur_520x478.png"> Kinnitan ja
+                        allkirjastan
+                        ID kaardiga
                     </button>
-                    <button type="button" id="without-id" class="btn btn-primary active btn-block">Kinnitan allkirjastamata
+                    <button type="button" id="without-id" class="btn btn-primary active btn-block">Kinnitan
+                        allkirjastamata
                     </button>
                 </div>
             </div>

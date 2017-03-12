@@ -29,24 +29,23 @@ function setBaseValidators()
      * submitterPIN (isikukood) required numeric
      * submitterTimeOfBirth required customNotInFuture
      */
-    $('#eventDateTime').attr('data-parsley-datetimepicker', true)
-    $('#eventdescription').attr('data-parsley-required', true)
-    $('#contactphonenumber').attr('data-parsley-required', true)
-    $('#contactEmail').attr('data-parsley-required', true)
+    //data-parsley-error-message
+    $('#eventDateTime').attr('data-parsley-datetimepicker', true);
+    $('#eventDateTime').attr('data-parsley-error-message', 'Sündmuse aeg ei saa olla tulevikus!');
+
+    $('#eventDescription').attr('data-parsley-required', true);
+    $('#eventDescription').attr('data-parsley-required-message', 'Sündmuse kirjeldus on kohustuslik!');
+
+    $('#contactPhoneNumber').attr('data-parsley-required', true);
+    $('#contactPhoneNumber').attr('data-parsley-required-message', 'Telefoninumber on kohustuslik!');
+
+    $('#contactEmail').attr('data-parsley-required', true);
+    $('#contactEmail').attr('data-parsley-required-message', 'Email on kohustuslik!');
     //$('#contactEmail').attr('custom numeric chcek', true)
 
-    $('#contactemailcheck').attr('data-parsley-required', true)
+    $('#contactEmailCheck').attr('data-parsley-required', true);
+    $('#contactEmailCheck').attr('data-parsley-required-message', 'Email on kohustuslik!');
     //$('#contactemailcheck').attr('parsley email verification', true)
-
-    $('#submitterFirstName').attr('data-parsley-required', true)
-    $('#submitterLastName').attr('data-parsley-required', true)
-    $('#submitterCitizenship').attr('data-parsley-required', true)
-    $('#submitterPIN').attr('data-parsley-required', true)
-    //$('#submitterPIN').attr('custom numeric check', true)
-
-    $('#submitterTimeOfBirth').attr('data-parsley-required', true)
-    //$('#submitterTimeOfBirth').attr('custom not in future check', true)
-
 }
 
 function addDateTimeValidators()
@@ -100,19 +99,45 @@ function addDateTimeValidators()
 
 function addSubmitterDataValidation()
 {
+
     $('#submitterFirstName').attr('data-parsley-required', true);
+    $('#submitterFirstName').attr('data-parsley-required-message', 'Esitaja eesnimi on kohustuslik!');
+
     $('#submitterLastName').attr('data-parsley-required', true);
+    $('#submitterLastName').attr('data-parsley-required-message', 'Esitaja perekonnanimi on kohustuslik!');
+
     $('#submitterCitizenship').attr('data-parsley-required', true);
+    $('#submitterCitizenship').attr('data-parsley-required-message', 'Esitaja kodakondsus on kohustuslik!');
+
     $('#submitterPIN').attr('data-parsley-required', true);
+    $('#submitterPIN').attr('data-parsley-required-message', 'Esitaja isikukood on kohustuslik!');
+    //$('#submitterPIN').attr('custom numeric check', true)
+
     $('#submitterTimeOfBirth').attr('data-parsley-required', true);
+    $('#submitterTimeOfBirth').attr('data-parsley-required-message', 'Esitaja sünniaeg on kohustuslik!');
+    //$('#submitterTimeOfBirth').attr('custom not in future check', true)
+
 }
 function removeSubmitterDataValidation()
 {
+
     $('#submitterFirstName').attr('data-parsley-required', false);
+    $('#submitterFirstName').attr('data-parsley-required-message', 'Esitaja eesnimi on kohustuslik!');
+
     $('#submitterLastName').attr('data-parsley-required', false);
+    $('#submitterLastName').attr('data-parsley-required-message', 'Esitaja perekonnanimi on kohustuslik!');
+
     $('#submitterCitizenship').attr('data-parsley-required', false);
+    $('#submitterCitizenship').attr('data-parsley-required-message', 'Esitaja kodakondsus on kohustuslik!');
+
     $('#submitterPIN').attr('data-parsley-required', false);
+    $('#submitterPIN').attr('data-parsley-required-message', 'Esitaja isikukood on kohustuslik!');
+    //$('#submitterPIN').attr('custom numeric check', true)
+
     $('#submitterTimeOfBirth').attr('data-parsley-required', false);
+    $('#submitterTimeOfBirth').attr('data-parsley-required-message', 'Esitaja sünniaeg on kohustuslik!');
+    //$('#submitterTimeOfBirth').attr('custom not in future check', true)
+
 }
 
 function submitForm()

@@ -26,14 +26,19 @@ textarea {
 }
 
 .submit-button {
-    background-color: #c0ee52 !important;
-    border-color: #516e1f !important;
+    background-color: #219e12 !important;
+    border-color: #276523 !important;
+}
+
+p {
+    padding: 5px 15px 5px 15px;
 }
 
 .important-text {
     font-weight: bold;
     font-size: 1.5em;
 }
+
 .critical-text {
     color: red;
     font-weight: bolder;
@@ -46,93 +51,103 @@ input[type='checkbox'] {
 }
 
 .required-input-area {
-	margin-top:10px;
-    background: #ccc;
+    margin-top: 10px;
+    background: #ff010f;
     font-weight: bold;
-	border-radius:4px;
-	
+    border-radius: 4px;
+
 }
-label{
-	margin-left: 5px;
-	
+
+label {
+    margin-left: 5px;
+
 }
-#case{
-	background: #eee;
-	border-radius:4px;
+
+#case {
+    background: #eee;
+    border-radius: 4px;
 }
-#item-data{
-	background: #eee;
-	border-radius:4px;
+
+#item-data {
+    background: #eee;
+    border-radius: 4px;
 }
-#taken-item{
-	background: #ddd;
-	border-radius:4px;
+
+#taken-item {
+    background: #ddd;
+    border-radius: 4px;
 }
+
 /*#items{
 	background: #eee;
 	border-radius:4px;
 }*/
-#criminal-data{
-	background: #ddd;
-	border-radius:4px;
+#criminal-data {
+    background: #ddd;
+    border-radius: 4px;
 }
 
-#criminal-information{
-	background: #eee;
-	border-radius:4px;
+#criminal-information {
+    background: #eee;
+    border-radius: 4px;
 }
+
 /*#criminals{
 	
 }*/
-#witness-data{
-	background: #eee;
-	border-radius:4px;
+#witness-data {
+    background: #eee;
+    border-radius: 4px;
 }
 
-#witness-information{
-	background: #ddd;
-	border-radius:4px;
-}
-#witnesses{
-	
+#witness-information {
+    background: #ddd;
+    border-radius: 4px;
 }
 
-#person-address{
-	margin-top:10px;
-}
-#agreement-checks{
-	background: #eee;
-	border-radius:4px;
+#witnesses {
+
 }
 
-#contacts{
-	background: #ddd;
-	border-radius:4px;
+#person-address {
+    margin-top: 10px;
 }
 
-#person-information{
-	background: #eee;
-	border-radius:4px;
-}
-h3{
-	background:#bbb;
-	padding:5px;
-	border-radius:4px;
-	margin-bottom:0px;
-}
-h4{
-	
-	padding:5px;
-	border-radius:4px;
+#agreement-checks {
+    background: #eee;
+    border-radius: 4px;
 }
 
+#contacts {
+    background: #ddd;
+    border-radius: 4px;
+}
 
+#person-information {
+    background: #eee;
+    border-radius: 4px;
+}
 
+h3 {
+    background: #bbb;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 0px;
+}
 
+h4 {
 
+    padding: 5px;
+    border-radius: 4px;
+}
 
+#form-heading {
+    text-align: center;
+}
 
-
+#id-card-icon {
+    max-height:25px;
+}
 
 /*
 required fields are all bold-ish
