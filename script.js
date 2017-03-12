@@ -39,6 +39,7 @@ function setBaseValidators()
 
     $('#contactPhoneNumber').attr('data-parsley-required', true);
     $('#contactPhoneNumber').attr('data-parsley-required-message', 'Telefoninumber on kohustuslik!');
+    $('#contactPhoneNumber').attr('data-parsley-error-message', 'Telefoninumber on vigane!');
 
     $('#contactEmail').attr('data-parsley-required', true);
     $('#contactEmail').attr('data-parsley-required-message', 'Email on kohustuslik!');
