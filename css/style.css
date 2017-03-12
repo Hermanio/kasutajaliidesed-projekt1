@@ -46,9 +46,94 @@ input[type='checkbox'] {
 }
 
 .required-input-area {
-    background: #98979e;
+	margin-top:10px;
+    background: #ccc;
     font-weight: bold;
+	border-radius:4px;
+	
 }
+label{
+	margin-left: 5px;
+	
+}
+#case{
+	background: #eee;
+	border-radius:4px;
+}
+#item-data{
+	background: #eee;
+	border-radius:4px;
+}
+#taken-item{
+	background: #ddd;
+	border-radius:4px;
+}
+/*#items{
+	background: #eee;
+	border-radius:4px;
+}*/
+#criminal-data{
+	background: #ddd;
+	border-radius:4px;
+}
+
+#criminal-information{
+	background: #eee;
+	border-radius:4px;
+}
+/*#criminals{
+	
+}*/
+#witness-data{
+	background: #eee;
+	border-radius:4px;
+}
+
+#witness-information{
+	background: #ddd;
+	border-radius:4px;
+}
+#witnesses{
+	
+}
+
+#person-address{
+	margin-top:10px;
+}
+#agreement-checks{
+	background: #eee;
+	border-radius:4px;
+}
+
+#contacts{
+	background: #ddd;
+	border-radius:4px;
+}
+
+#person-information{
+	background: #eee;
+	border-radius:4px;
+}
+h3{
+	background:#bbb;
+	padding:5px;
+	border-radius:4px;
+	margin-bottom:0px;
+}
+h4{
+	
+	padding:5px;
+	border-radius:4px;
+}
+
+
+
+
+
+
+
+
+
 /*
 required fields are all bold-ish
 */

@@ -35,6 +35,7 @@
             <h1>Politseile avalduse esitamine</h1>
             <p class="important-text">
                 <span class="critical-text"> Kui kellegi elu või tervis on vahetult ohus, siis helista viivitamatult hädaabinumbrile 112.</span>
+				<br/>
                 Ära kasuta seda ankeeti raskest ja/või isikuvastasest kuriteost (vägistamine, tapmine, kehaline
                 väärkohtlemine - löömine, peksmine vm) teatamiseks. Raskest kuriteost teada andmiseks pöördu lähimasse
                 politseijaoskonda.
@@ -53,7 +54,7 @@
         <form id="mainForm" class="parsley-form" data-parsley-validate data-parsley-focus="first">
             <div class="col-md-12">
 
-                <div>
+                <div id="case">
                     <h3>Sündmus</h3>
 
                     <div class="form-group">
@@ -154,13 +155,13 @@
                     </div>
                 </div>
 
-                <div>
+                <div id="taken-item">
                     <h3>Ära võetud/viidud/saamata jäänud vara</h3>
 
                     <div class="col-md-12" id="items">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                    <button type="button" class="btn btn-primary active btn-block " name="button"
                             id="add-item">
                         <span class="glyphicon glyphicon-plus"></span> Lisa vara
                     </button>
@@ -244,7 +245,7 @@
                     <div class="col-md-12" id="criminals">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                    <button type="button" class="btn btn-primary active btn-block " name="button"
                             id="add-criminal">
                         <span class="glyphicon glyphicon-plus"></span> Lisa isik
                     </button>
@@ -321,7 +322,7 @@
                     <div class="col-md-12" id="witnesses">
 
                     </div>
-                    <button type="button" class="btn btn-primary active btn-block add-button" name="button"
+                    <button type="button" class="btn btn-primary active btn-block " name="button"
                             id="add-witness">
                         <span class="glyphicon glyphicon-plus"></span>Lisa tunnistaja
                     </button>
@@ -348,7 +349,7 @@
                     </div>
 
                 </div>
-                <div>
+                <div id="contacts">
                     <h3>Kontaktandmed</h3>
 
                     <div class="row">
@@ -358,13 +359,13 @@
                                 <input id="contactPhoneNumber" class="form-control" type="text" data-parsley-required>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
+                        <div class="col-md-6 ">
+                            <div class="form-group " id="person-address">
                                 <label>Elukoha aadress (tänav, maja nr, korter, linn)</label>
                                 <input id="contactAddress" class="form-control" type="text">
                             </div>
                         </div>
-                        <div class="col-xs-12">
+                        <div class="col-md-12">
                             <p class="important-text">Kui e-posti aadress on ôige, siis peaksid süüteoteate koopia päeva
                                 jooksul sisestatud e-posti aadressile saama, mis tähendab, et avaldus on politseini
                                 jõudnud. Kui seda ei juhtu, siis palun võta ühendust aadressil ppa@politsei.ee.
