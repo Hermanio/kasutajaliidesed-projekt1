@@ -13,6 +13,7 @@ $(document).ready(
 function setBaseValidators()
 {
     addDateTimeValidators();
+    addEmailValidator();
     /*
      * eventDateTime - customNotInFuture
      * eventDescription - required
@@ -41,13 +42,34 @@ function setBaseValidators()
 
     $('#contactEmail').attr('data-parsley-required', true);
     $('#contactEmail').attr('data-parsley-required-message', 'Email on kohustuslik!');
+    $('#contactEmail').attr('data-parsley-error-message', 'Email on vigane!');
     //$('#contactEmail').attr('custom numeric chcek', true)
 
     $('#contactEmailCheck').attr('data-parsley-required', true);
+    //$('#contactEmailCheck').attr('data-parsley-emailEqualityValidator', true);
     $('#contactEmailCheck').attr('data-parsley-required-message', 'Email on kohustuslik!');
+    $('#contactEmailCheck').attr('data-parsley-error-message', 'Email on vigane!');
+
     //$('#contactemailcheck').attr('parsley email verification', true)
 }
-
+function addEmailValidator() {
+    window.Parsley
+        .addValidator('emailEqualityValidator', {
+            requirementType: 'string',
+            validateString: function (value, requirement)
+            {
+                console.log($('#contactEmail').val());
+                return $('#contactEmail').val() == value;
+            },
+            messages: {
+                en: 'Sisestatud e-mail ei klapi!'
+            }
+        });
+    $('#contactEmailCheck').on('blur change click dblclick error focus focusin focusout hover keydown keypress keyup load mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup resize scroll select submit', function ()
+    {
+        $('#contactEmailCheck').parsley().validate();
+    });
+}
 function addDateTimeValidators()
 {
     //custom datetimevalidator here
@@ -58,12 +80,9 @@ function addDateTimeValidators()
             requirementType: 'string',
             validateString: function (value, requirement)
             {
-                console.log(Date.parse(value).toString());
                 var eventDateTime = Date.parse(value);
                 var currentDateTime = new Date();
-                console.log(value);
-                console.log(eventDateTime);
-                console.log(currentDateTime);
+
                 return eventDateTime < currentDateTime;
             },
             messages: {
