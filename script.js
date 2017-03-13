@@ -121,6 +121,8 @@ function submitForm()
     }
     if (!valid) {
         return;
+    } else {
+        openDialog();
     }
 }
 
@@ -205,7 +207,7 @@ function initEvents()
             addSubmitterDataValidation();
         } else
         {
-            openDialog();
+            submitForm();
         }
     });
     $('#with-id').click(function ()
@@ -215,7 +217,7 @@ function initEvents()
         removeSubmitterDataValidation();
         $('#person-information').addClass('hidden');
         $('#without-id').removeClass('submit-button');
-        openDialog();
+        submitForm();
 
     });
 
