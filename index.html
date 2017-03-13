@@ -54,7 +54,7 @@
                 <div id="case">
                     <h3>Sündmus</h3>
 
-                    <div class="form-group">
+                    <div class="form-group required-input-area">
                         <label>Kuupäev ja kellaeg, millal sündmus toimus</label>
                         <div id='firstdatetimepicker' class='input-group date datetimepicker'>
                             <span class="input-group-addon">
@@ -476,9 +476,10 @@
     </div>
 </div>
 <paper-dialog id="animated" modal>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Kas sisestatud andmed on korrektsed?</p>
     <div class="buttons">
-        <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
+        <paper-button onclick="submitForm()" dialog-confirm autofocus>Jah</paper-button>
+        <paper-button onclick="closeDialog()" dialog-confirm autofocus>Ei</paper-button>
     </div>
 </paper-dialog>
 

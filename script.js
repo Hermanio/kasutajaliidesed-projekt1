@@ -155,12 +155,9 @@ function submitForm()
     }
     //openDialog();
 
-    var confirmation = confirm("Kas olete kindel, et esitatud andmed on korrektsed?");
+    //var confirmation = confirm("Kas olete kindel, et esitatud andmed on korrektsed?");
 
-    if (confirmation)
-    {
-        alert("Saadetud!");
-    }
+
 }
 
 
@@ -231,7 +228,7 @@ function initEvents()
             addSubmitterDataValidation();
         } else
         {
-            submitForm();
+            openDialog();
         }
     });
     $('#with-id').click(function ()
@@ -241,7 +238,7 @@ function initEvents()
         removeSubmitterDataValidation();
         $('#person-information').addClass('hidden');
         $('#without-id').removeClass('submit-button');
-        submitForm();
+        openDialog();
 
     });
     $('#add-witness').click(function ()
@@ -362,4 +359,8 @@ function initEvents()
  * */
 function openDialog() {
     document.getElementById('animated').open();
+}
+
+function closeDialog() {
+    document.getElementById('animated').close();
 }
