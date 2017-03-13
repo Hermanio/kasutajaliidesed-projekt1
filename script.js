@@ -1,7 +1,3 @@
-/**
- * Created by toks on 3/5/17.
- */
-
 $(document).ready(
     function ()
     {
@@ -13,23 +9,7 @@ $(document).ready(
 function setBaseValidators()
 {
     addDateTimeValidators();
-    /*
-     * eventDateTime - customNotInFuture
-     * eventDescription - required
-     * contactPhoneNumber - required
-     * contactEmail required customEmailEqualCheckValidator
-     * contactEmailCheck required customEmailEqualCheckValidator
 
-
-     no id
-
-     * submitterFirstName required
-     * submitterLastName required
-     * submitterCitizenship required
-     * submitterPIN (isikukood) required numeric
-     * submitterTimeOfBirth required customNotInFuture
-     */
-    //data-parsley-error-message
     $('#eventDateTime').attr('data-parsley-datetimepicker', true);
     $('#eventDateTime').attr('data-parsley-error-message', 'Sündmuse aeg ei saa olla tulevikus!');
 
@@ -43,21 +23,15 @@ function setBaseValidators()
     $('#contactEmail').attr('data-parsley-required', true);
     $('#contactEmail').attr('data-parsley-required-message', 'Email on kohustuslik!');
     $('#contactEmail').attr('data-parsley-error-message', 'Email on vigane!');
-    //$('#contactEmail').attr('custom numeric chcek', true)
 
     $('#contactEmailCheck').attr('data-parsley-required', true);
-    //$('#contactEmailCheck').attr('data-parsley-emailEqualityValidator', true);
     $('#contactEmailCheck').attr('data-parsley-required-message', 'Email on kohustuslik!');
     $('#contactEmailCheck').attr('data-parsley-error-message', 'Email on vigane!');
 
-    //$('#contactemailcheck').attr('parsley email verification', true)
 }
 
 function addDateTimeValidators()
 {
-    //custom datetimevalidator here
-    //todo: fix date parse issues
-
     window.Parsley
         .addValidator('datetimepicker', {
             requirementType: 'string',
@@ -86,7 +60,6 @@ function addDateTimeValidators()
                 en: 'Sünniaeg ei saa olla tulevikus!'
             }
         });
-    //retarded event handling because datetimepicker did not fire proper events
 
     $('#firstdatetimepicker').on('dp.change', function ()
     {
@@ -113,11 +86,9 @@ function addSubmitterDataValidation()
 
     $('#submitterPIN').attr('data-parsley-required', true);
     $('#submitterPIN').attr('data-parsley-required-message', 'Esitaja isikukood on kohustuslik!');
-    //$('#submitterPIN').attr('custom numeric check', true)
 
     $('#submitterTimeOfBirth').attr('data-parsley-required', true);
     $('#submitterTimeOfBirth').attr('data-parsley-required-message', 'Esitaja sünniaeg on kohustuslik!');
-    //$('#submitterTimeOfBirth').attr('custom not in future check', true)
 
 }
 function removeSubmitterDataValidation()
@@ -134,11 +105,9 @@ function removeSubmitterDataValidation()
 
     $('#submitterPIN').attr('data-parsley-required', false);
     $('#submitterPIN').attr('data-parsley-required-message', 'Esitaja isikukood on kohustuslik!');
-    //$('#submitterPIN').attr('custom numeric check', true)
 
     $('#submitterTimeOfBirth').attr('data-parsley-required', false);
     $('#submitterTimeOfBirth').attr('data-parsley-required-message', 'Esitaja sünniaeg on kohustuslik!');
-    //$('#submitterTimeOfBirth').attr('custom not in future check', true)
 
 }
 
@@ -153,13 +122,15 @@ function submitForm()
     if (!valid) {
         return;
     }
-    //openDialog();
-
-    //var confirmation = confirm("Kas olete kindel, et esitatud andmed on korrektsed?");
-
-
 }
 
+function openDialog() {
+    document.getElementById('animated').open();
+}
+
+function closeDialog() {
+    document.getElementById('animated').close();
+}
 
 function initEvents()
 {
@@ -289,78 +260,3 @@ function initEvents()
     });
 }
 
-/*
- * levels of validation
- * required
- * email verification
- * isikukood maxlen and numbers only
- *
- * */
-
-/*
- * IDs and verification needed
- * eventDateTime - customNotInFuture
- * eventCountry
- * eventAddress
- * eventPlaceOfAction
- * eventDescription - required
- * eventDamageCost
- * eventSettlement
- * eventEmailInformationSendingConfirmation
- * eventInformationViaEToimik
- * contactPhoneNumber - required
- * contactAddress
- * contactEmail required customEmailEqualCheckValidator
- * contactEmailCheck required customEmailEqualCheckValidator
- *
- * if no id
- * submitterFirstName required
- * submitterLastName required
- * submitterCitizenship required
- * submitterJobTitle
- * submitterPIN (isikukood) required numeric
- * submitterTimeOfBirth required customNotInFuture
- *
- * item data related stuff (no way to assign id unless OOP stuff.
- * item name
- * item year of purchase
- * item approximate current value in euros
- * item was in a locked room
- * last date and time of possession of said item
- * date and time of moment that the item was declared lost
- * differentiating properties
- *
- * criminal data (person who did bad stuff)
- * criminal first name
- * criminal last name
- * criminal PIN
- * criminal date of birth
- * criminal citizenship
- * criminal job title
- * criminal phone number
- * criminal address
- * criminal email
- * criminal identifying features
- *
- *
- * Witness related data
- * witness first name
- * witness last name
- * witness PIN
- * witness time of birth
- * witness citizenship
- * witness job title
- * witness phone number
- * witness address
- * witness email
- *
- *
- *
- * */
-function openDialog() {
-    document.getElementById('animated').open();
-}
-
-function closeDialog() {
-    document.getElementById('animated').close();
-}
