@@ -78,8 +78,7 @@ function addDateTimeValidators()
             requirementType: 'string',
             validateString: function (value, requirement)
             {
-                console.log(Date.parse(value).toString());
-                var eventDateTime = Date.parse(value);
+                var eventDateTime = moment(value, 'DD.MM.YYYY').toDate();
                 var currentDateTime = new Date();
                 return eventDateTime < currentDateTime;
             },
@@ -97,6 +96,7 @@ function addDateTimeValidators()
     {
         $('#submitterTimeOfBirth').parsley().validate();
     });
+
 }
 
 function addSubmitterDataValidation()
@@ -144,28 +144,79 @@ function removeSubmitterDataValidation()
 
 function submitForm()
 {
+    var valid = null;
     var formParsley = $('#mainForm').parsley();
-    openDialog();
 
-    //var confirmation = confirm("REPLACE ME LOL. Kas esitatud andmed on korrektsed?");
+    while (valid === null) {
+        valid = formParsley.validate();
+    }
+    if (!valid) {
+        return;
+    }
+    //openDialog();
+
+    var confirmation = confirm("Kas olete kindel, et esitatud andmed on korrektsed?");
+
     if (confirmation)
     {
-        formParsley.validate();
+        alert("Saadetud!");
     }
 }
 
+
 function initEvents()
 {
+    function validateDate(e)
+    {
+        $(e.target).find('input').parsley().validate();
+    };
+
     $('.datepicker').datetimepicker({
         format: 'DD.MM.YYYY'
-    });
+    }).on('dp.change', validateDate);
     $('.datetimepicker').datetimepicker({
         format: 'DD.MM.YYYY HH:mm'
-    });
+    }).on('dp.change', validateDate);
+
     $('.countries').select2({
         allowClear: true,
         placeholder: "",
-        data: ["Eesti Vabariik", "Määratlemata", "Afganistan", "Ahvenamaa", "Albaania", "Alžeeria", "Ameerika Samoa", "Ameerika Ühendriigid", "Andorra", "Angola", "Anguilla", "Antarktis", "Antigua ja Barbuda", "Aomen", "Araabia Ühendemiraadid", "Argentina", "Armeenia", "Aruba", "Aserbaidžaan", "Austraalia", "Austria", "Bahama", "Bahrein", "Bangladesh", "Barbados", "Belau", "Belgia", "Belize", "Benin", "Bermuda", "Bhutan", "Boliivia Paljurahvuseline Riik", "Bonaire, Sint Eustatius ja Saba", "Bosnia- ja Hertsegoviina", "Botswana", "Bouvet' saar", "Brasiilia", "Briti India ookeani ala", "Briti Neitsisaared", "Brunei Darussalam", "Bulgaaria", "Burkina Faso", "Burundi", "Colombia", "Cooki saared", "Costa Rica", "Curaçao", "Curaçao (Holl)", "Djibouti", "Dominica", "Dominikaani Vabariik", "Ecuador", "Egiptus", "Ekvatoriaal-Guinea", "El Salvador", "Elevandiluurannik", "Eritrea Riik", "Etioopia", "Falklandi (Malviini) saared", "Fidži", "Filipiini Vabariik", "Fääri saared", "Gabon", "Gambia", "Ghana", "Gibraltar", "Grenada", "Gruusia", "Gröönimaa", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guernsey (GBR)", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard ja McDonald", "Hiina", "Hispaania", "Holland", "Hollandi Antillid", "Honduras", "Hongkong", "Horvaatia", "Ida-Timori", "Ida-Timori", "Iirimaa", "Iisrael", "India", "Indoneesia", "Iraak", "Iraan", "Island", "Itaalia", "Jaapan", "Jamaica", "Jeemen", "Jersey", "JEY", "Jordaania", "Jugoslaavia", "Jõulusaar", "Kaimanisaared (GBR)", "Kambodža", "Kamerun", "Kanada", "Kasahstan", "Katar", "Kenya", "Kesk-Aafrika Vabariik", "Kiribati", "Komoori Liit", "Kongo", "Kongo DV", "Kookossaared (Keelingi saared)", "Korea RDV", "Korea Vabariik", "Kosovo", "Kreeka", "Kuuba", "Kuveit", "Kõrgõzstan", "Küpros", "Laos", "Leedu", "Lesotho", "Libeeria", "Liechtenstein", "Liibanon", "Liibüa", "Luksemburg", "Lõuna-Aafrika Vabariik", "Lõuna-Georgia ja Lõuna-Sandwich", "Lõuna-Sudaan", "Läti Vabariik", "Lääne-Sahara", "Madagaskar", "Makedoonia", "Malaisia", "Malawi", "Maldiivid", "Mali", "Malta", "Mani saar", "Maroko", "Marshalli Saared", "Martinique", "Mauritaania", "Mauritius", "Mayotte", "Mehhiko", "Mikroneesia", "Moldova", "Monaco", "Mongoolia", "Montenegro", "Montserrat", "Mosambiik", "Myanmar", "Namiibia", "Nauru", "Nepal", "Nicaragua", "Nigeeria", "Niger", "Niue", "Norfolki Saar", "Norra", "Omaan", "Paapua Uus-Guinea", "Pakistan", "Palestiina okupeeritud alad", "Panama", "Paraguay", "Peruu", "Pitcairn", "Poola", "Portugali", "Prantsuse Guajaana", "Prantsuse Lõunaalad", "Prantsuse Polüneesia", "Prantsusmaa", "Puerto Rico", "Põhja-Mariaanid", "Püha Tool (Vatikan)", "Réunion", "Riik teadmata", "Roheneemesaared", "Rootsi Kuningriik", "Rumeenia", "Rwanda", "Saalomoni Saared", "Saint Helena, Ascension ja Tristan da Cunha (GBR)", "Saint Kitts ja Nevis", "Saint Lucia", "Saint Pierre ja Miquelon", "Saint Vincent ja Grenadiinid", "Saint-Barthélemy (FRA)", "Saint-Martin (Prantsuse osa) (FRA)", "Saksamaa", "Sambia", "Samoa", "San Marino", "Sao Tomé ja Principe", "Saudi Araabia", "Seišellid", "Senegal", "Serbia", "Sierra Leone", "Singapur", "Sint Marteen (Hollandi osa)", "Slovakkia", "Sloveenia", "Somaali Vabariik", "Soome", "Sri Lanka", "Sudaan", "Suriname", "Suurbritannia", "Svaasimaa", "Svalbard ja Jan Mayen", "Süüria", "Šveits", "Zimbabwe", "Taani", "Tadžikistan", "Tai", "Taiwan", "Tansaania", "Togo", "Tokelau", "Tonga", "Trinidad ja Tobago", "Tšaad", "Tšehhi", "Tšiili", "Tuneesia", "Turks ja Caicos", "Tuvalu", "Türgi", "Türkmenistan", "Uganda", "Ukraina", "Ungari", "Uruguay", "USA Neitsisaared", "Usbekistan", "Uus-Kaledoonia", "Uus-Meremaa", "Valgevene", "Wallis ja Futuna", "Vanuatu", "Venemaa Föderatsioon", "Venezuela", "Vietnam", "Ühendriikide hajasaared", "Mujal nimetamata territooriumid"]
+        data: ["Eesti Vabariik", "Määratlemata", "Afganistan", "Ahvenamaa", "Albaania", "Alžeeria", "Ameerika Samoa",
+        "Ameerika Ühendriigid", "Andorra", "Angola", "Anguilla", "Antarktis", "Antigua ja Barbuda", "Aomen",
+        "Araabia Ühendemiraadid", "Argentina", "Armeenia", "Aruba", "Aserbaidžaan", "Austraalia", "Austria", "Bahama",
+        "Bahrein", "Bangladesh", "Barbados", "Belau", "Belgia", "Belize", "Benin", "Bermuda", "Bhutan",
+        "Boliivia Paljurahvuseline Riik", "Bonaire, Sint Eustatius ja Saba", "Bosnia- ja Hertsegoviina", "Botswana",
+        "Bouvet' saar", "Brasiilia", "Briti India ookeani ala", "Briti Neitsisaared", "Brunei Darussalam", "Bulgaaria",
+        "Burkina Faso", "Burundi", "Colombia", "Cooki saared", "Costa Rica", "Curaçao", "Curaçao (Holl)", "Djibouti",
+        "Dominica", "Dominikaani Vabariik", "Ecuador", "Egiptus", "Ekvatoriaal-Guinea", "El Salvador",
+        "Elevandiluurannik", "Eritrea Riik", "Etioopia", "Falklandi (Malviini) saared", "Fidži", "Filipiini Vabariik",
+        "Fääri saared", "Gabon", "Gambia", "Ghana", "Gibraltar", "Grenada", "Gruusia", "Gröönimaa", "Guadeloupe",
+        "Guam", "Guatemala", "Guernsey", "Guernsey (GBR)", "Guinea", "Guinea-Bissau", "Guyana", "Haiti",
+        "Heard ja McDonald", "Hiina", "Hispaania", "Holland", "Hollandi Antillid", "Honduras", "Hongkong", "Horvaatia",
+        "Ida-Timori", "Ida-Timori", "Iirimaa", "Iisrael", "India", "Indoneesia", "Iraak", "Iraan", "Island", "Itaalia",
+        "Jaapan", "Jamaica", "Jeemen", "Jersey", "JEY", "Jordaania", "Jugoslaavia", "Jõulusaar", "Kaimanisaared (GBR)",
+        "Kambodža", "Kamerun", "Kanada", "Kasahstan", "Katar", "Kenya", "Kesk-Aafrika Vabariik", "Kiribati",
+        "Komoori Liit", "Kongo", "Kongo DV", "Kookossaared (Keelingi saared)", "Korea RDV", "Korea Vabariik", "Kosovo",
+        "Kreeka", "Kuuba", "Kuveit", "Kõrgõzstan", "Küpros", "Laos", "Leedu", "Lesotho", "Libeeria", "Liechtenstein",
+        "Liibanon", "Liibüa", "Luksemburg", "Lõuna-Aafrika Vabariik", "Lõuna-Georgia ja Lõuna-Sandwich",
+        "Lõuna-Sudaan", "Läti Vabariik", "Lääne-Sahara", "Madagaskar", "Makedoonia", "Malaisia", "Malawi", "Maldiivid",
+        "Mali", "Malta", "Mani saar", "Maroko", "Marshalli Saared", "Martinique", "Mauritaania", "Mauritius",
+        "Mayotte", "Mehhiko", "Mikroneesia", "Moldova", "Monaco", "Mongoolia", "Montenegro", "Montserrat", "Mosambiik",
+        "Myanmar", "Namiibia", "Nauru", "Nepal", "Nicaragua", "Nigeeria", "Niger", "Niue", "Norfolki Saar", "Norra",
+        "Omaan", "Paapua Uus-Guinea", "Pakistan", "Palestiina okupeeritud alad", "Panama", "Paraguay", "Peruu",
+        "Pitcairn", "Poola", "Portugali", "Prantsuse Guajaana", "Prantsuse Lõunaalad", "Prantsuse Polüneesia",
+        "Prantsusmaa", "Puerto Rico", "Põhja-Mariaanid", "Püha Tool (Vatikan)", "Réunion", "Riik teadmata",
+        "Roheneemesaared", "Rootsi Kuningriik", "Rumeenia", "Rwanda", "Saalomoni Saared",
+        "Saint Helena, Ascension ja Tristan da Cunha (GBR)", "Saint Kitts ja Nevis", "Saint Lucia",
+        "Saint Pierre ja Miquelon", "Saint Vincent ja Grenadiinid", "Saint-Barthélemy (FRA)",
+        "Saint-Martin (Prantsuse osa) (FRA)", "Saksamaa", "Sambia", "Samoa", "San Marino", "Sao Tomé ja Principe",
+        "Saudi Araabia", "Seišellid", "Senegal", "Serbia", "Sierra Leone", "Singapur", "Sint Marteen (Hollandi osa)",
+        "Slovakkia", "Sloveenia", "Somaali Vabariik", "Soome", "Sri Lanka", "Sudaan", "Suriname", "Suurbritannia",
+        "Svaasimaa", "Svalbard ja Jan Mayen", "Süüria", "Šveits", "Zimbabwe", "Taani", "Tadžikistan", "Tai", "Taiwan",
+        "Tansaania", "Togo", "Tokelau", "Tonga", "Trinidad ja Tobago", "Tšaad", "Tšehhi", "Tšiili", "Tuneesia",
+        "Turks ja Caicos", "Tuvalu", "Türgi", "Türkmenistan", "Uganda", "Ukraina", "Ungari", "Uruguay",
+        "USA Neitsisaared", "Usbekistan", "Uus-Kaledoonia", "Uus-Meremaa", "Valgevene", "Wallis ja Futuna", "Vanuatu",
+        "Venemaa Föderatsioon", "Venezuela", "Vietnam", "Ühendriikide hajasaared", "Mujal nimetamata territooriumid"]
     });
     $('#without-id').click(function ()
     {
