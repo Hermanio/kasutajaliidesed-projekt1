@@ -1,19 +1,18 @@
 /**
  * Created by toks on 3/5/17.
  */
+
 $(document).ready(
     function ()
     {
         initEvents();
         setBaseValidators();
     }
-)
-;
+);
 
 function setBaseValidators()
 {
     addDateTimeValidators();
-    addEmailValidator();
     /*
      * eventDateTime - customNotInFuture
      * eventDescription - required
@@ -53,24 +52,7 @@ function setBaseValidators()
 
     //$('#contactemailcheck').attr('parsley email verification', true)
 }
-function addEmailValidator() {
-    window.Parsley
-        .addValidator('emailEqualityValidator', {
-            requirementType: 'string',
-            validateString: function (value, requirement)
-            {
-                console.log($('#contactEmail').val());
-                return $('#contactEmail').val() == value;
-            },
-            messages: {
-                en: 'Sisestatud e-mail ei klapi!'
-            }
-        });
-    $('#contactEmailCheck').on('blur change click dblclick error focus focusin focusout hover keydown keypress keyup load mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup resize scroll select submit', function ()
-    {
-        $('#contactEmailCheck').parsley().validate();
-    });
-}
+
 function addDateTimeValidators()
 {
     //custom datetimevalidator here
@@ -81,7 +63,7 @@ function addDateTimeValidators()
             requirementType: 'string',
             validateString: function (value, requirement)
             {
-                var eventDateTime = Date.parse(value);
+                var eventDateTime = moment(value, 'DD.MM.YYYY HH:mm').toDate();
                 var currentDateTime = new Date();
 
                 return eventDateTime < currentDateTime;
