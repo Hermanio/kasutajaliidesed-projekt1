@@ -213,3 +213,9 @@ required fields are all bold-ish
     margin-top: 15px;
     width: 100%;
 }
+
+.disclaimer {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2em;
+}
