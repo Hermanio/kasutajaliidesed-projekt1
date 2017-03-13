@@ -148,20 +148,25 @@ function submitForm()
     }
 }
 
-
-function initEvents()
-{
+function initDatepickers(obj) {
     function validateDate(e)
     {
         $(e.target).find('input').parsley().validate();
     };
 
-    $('.datepicker').datetimepicker({
+    obj.find('.datepicker').datetimepicker({
         format: 'DD.MM.YYYY'
     }).on('dp.change', validateDate);
-    $('.datetimepicker').datetimepicker({
+    obj.find('.datetimepicker').datetimepicker({
         format: 'DD.MM.YYYY HH:mm'
     }).on('dp.change', validateDate);
+}
+
+var counters = {}
+
+function initEvents()
+{
+    initDatepickers($(document));
 
     $('.countries').select2({
         allowClear: true,
@@ -228,48 +233,37 @@ function initEvents()
         submitForm();
 
     });
-    $('#add-witness').click(function ()
-    {
-        var witnessData = $('#witness-data')
-            .clone()
-            .removeClass('hidden')
-            .removeAttr('id');
-        witnessData.find('.remove-entry')
-            .click(function (event)
-            {
-                console.log(event.target);
-                $(event.target).parent().remove();
+
+    function bindAdding(name) {
+        counters[name] = 0;
+        $("#add-" + name).click(function ()
+        {
+            var id = name + counters[name];
+            counters[name] += 1;
+            var data = $("#" + name + "-data")
+                .clone()
+                .removeClass('hidden')
+                .attr('id', id);
+            data.find('.remove-entry')
+                .click(function (event)
+                {
+                    console.log(event.target);
+                    $(event.target).parent().remove();
+                });
+            $("#" + name + "s").append(data);
+            initDatepickers(data);
+            data.find('.datepicker, .datetimepicker').each(function(index, value) {
+                var el = $(value),
+                    errorsContainter =  "#" + id + " ." + el.data("errors-class");
+                console.log(errorsContainter, el.find("input"));
+                el.find("input").attr("data-parsley-errors-container", errorsContainter);
             });
-        $("#witnesses").append(witnessData);
-    });
-    $('#add-criminal').click(function ()
-    {
-        var witnessData = $('#criminal-data')
-            .clone()
-            .removeClass('hidden')
-            .removeAttr('id');
-        witnessData.find('.remove-entry')
-            .click(function (event)
-            {
-                console.log(event.target);
-                $(event.target).parent().remove();
-            });
-        $("#criminals").append(witnessData);
-    });
-    $('#add-item').click(function ()
-    {
-        var witnessData = $('#item-data')
-            .clone()
-            .removeClass('hidden')
-            .removeAttr('id');
-        witnessData.find('.remove-entry')
-            .click(function (event)
-            {
-                console.log(event.target);
-                $(event.target).parent().remove();
-            });
-        $("#items").append(witnessData);
-    });
+        });
+    }
+
+    bindAdding("witness");
+    bindAdding("criminal");
+    bindAdding("item");
 }
 
 /*

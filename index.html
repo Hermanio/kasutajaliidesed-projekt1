@@ -57,14 +57,16 @@
                 <div id="case">
                     <h3>Sündmus</h3>
 
-                    <div class="form-group">
+                    <div class="form-group" id="case-date">
                         <label>Kuupäev ja kellaeg, millal sündmus toimus</label>
                         <div id='firstdatetimepicker' class='input-group date datetimepicker'>
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                             <input id="eventDateTime" type='text' class="form-control" data-parsley-validate-if-empty
-                                   data-parsley-datetimepicker/>
+                                   data-parsley-datetimepicker data-parsley-errors-container="#case-date custom-errors-list"/>
+                        </div>
+                        <div class="custom-errors-list">
                         </div>
                     </div>
 
@@ -129,11 +131,13 @@
                     <div class="form-group">
                         <label>Kuupäev ja kellaeg, millal oli vara valdus olemas (viimati kannatanul/teatajal ese/asi
                             olemas)</label>
-                        <div class='input-group date datetimepicker'>
+                        <div class='input-group date datetimepicker' data-errors-class="item-date-from-errors">
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <input type='text' class="form-control"/>
+                            <input type='text' class="form-control" data-parsley-datetimepicker="true"/>
+                        </div>
+                        <div class="item-date-from-errors custom-errors-list-generated">
                         </div>
                     </div>
 
@@ -141,11 +145,13 @@
                         <label>Kuupäev ja kellaeg, millal vara valdusest väljaminek on tuvastatud (polnud enam eset/asja
                             teatajal/kannatanul
                             olemas)</label>
-                        <div class='input-group date datetimepicker'>
+                        <div class='input-group date datetimepicker' data-errors-class="item-date-to-errors">
                             <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </span>
-                            <input type='text' class="form-control"/>
+                            <input type='text' class="form-control" data-parsley-datetimepicker="true" />
+                        </div>
+                        <div class="item-date-to-errors custom-errors-list-generated">
                         </div>
                     </div>
 
@@ -191,11 +197,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Sünniaeg</label>
-                                <div class='input-group date datepicker'>
+                                <div class='input-group date datepicker' data-errors-class="criminal-birthdate-errors">
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                       </span>
-                                    <input type='text' class="form-control"/>
+                                    <input type='text' data-parsley-datepicker="true" class="form-control"/>
+                                </div>
+                                <div class="criminal-birthdate-errors custom-errors-list-generated">
                                 </div>
 
                             </div>
@@ -276,11 +284,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Sünniaeg</label>
-                                <div class='input-group date datepicker'>
+                                <div class='input-group date datepicker' data-errors-class="witness-birthdate-errors">
                                   <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                   </span>
-                                    <input type='text' class="form-control"/>
+                                    <input type='text' class="form-control" data-parsley-datepicker="true"/>
+                                </div>
+                                <div class="witness-birthdate-errors custom-errors-list-generated">
                                 </div>
                             </div>
                         </div>
@@ -319,7 +329,7 @@
 
                 <div id="witness-information">
                     <h3>Tunnistaja(te) andmed</h3>
-                    <div class="col-md-12" id="witnesses">
+                    <div class="col-md-12" id="witnesss">
 
                     </div>
                     <button type="button" class="btn btn-primary active btn-block " name="button"
@@ -427,7 +437,7 @@
                                 <input id="submitterPIN" class="form-control" type="number" data-parsley-type="integer" data-parsley-trigger="input">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" id="submitter">
                             <div class="form-group required-input-area">
                                 <label>Sünniaeg</label>
                                 <div id='birthdatetimepicker' class='input-group date datepicker'>
@@ -435,9 +445,10 @@
                                 <span class="glyphicon glyphicon-calendar"></span>
                               </span>
                                     <input id="submitterTimeOfBirth" type='text' class="form-control"
-                                           data-parsley-datepicker data-parsley-trigger="input"/>
+                                           data-parsley-datepicker data-parsley-trigger="input" data-parsley-errors-container="#submitter .custom-errors-list"/>
                                 </div>
-
+                            </div>
+                            <div class="custom-errors-list">
                             </div>
                         </div>
                     </div>

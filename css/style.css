@@ -93,7 +93,7 @@ label {
 }
 
 /*#criminals{
-	
+
 }*/
 #witness-data {
     background: #eee;
@@ -147,6 +147,22 @@ h4 {
 
 #id-card-icon {
     max-height:25px;
+}
+
+.custom-errors-list {
+    background: #ff010f;
+    border-radius: 4px;
+    margin-top: -20px;
+    padding-top: 5px;
+}
+
+.custom-errors-list-generated ul {
+    background: #ff010f;
+    border-radius: 4px;
+    margin-top: -10px;
+}
+.custom-errors-list-generated li {
+    padding-top: 15px;
 }
 
 /*
