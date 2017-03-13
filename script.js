@@ -133,13 +133,21 @@ function removeSubmitterDataValidation()
 
 function submitForm()
 {
+    var valid = null;
     var formParsley = $('#mainForm').parsley();
-    var confirmation = confirm("REPLACE ME LOL. Kas esitatud andmed on korrektsed?");
+    while (valid === null) {
+        valid = formParsley.validate();
+    }
+    if (!valid) {
+        return;
+    }
+    var confirmation = confirm("Kas olete kindel, et esitatud andmed on korrektsed?");
     if (confirmation)
     {
-        formParsley.validate();
+        alert("Saadetud!");
     }
 }
+
 
 function initEvents()
 {
