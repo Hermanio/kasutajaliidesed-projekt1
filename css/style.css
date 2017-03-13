@@ -1,5 +1,14 @@
+html, body, label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100 !important;
+}
+
 textarea {
     resize: vertical;
+}
+
+.container {
+    padding: 0 ;
 }
 
 .remove-entry {
@@ -35,14 +44,15 @@ p {
 }
 
 .important-text {
-    font-weight: bold;
     font-size: 1.5em;
+    background: #eee;
+    border-radius: 4px;
 }
 
 .critical-text {
     color: red;
-    font-weight: bolder;
-    font-size: 2em;
+    font-size: 1.5em;
+
 }
 
 input[type='checkbox'] {
@@ -52,8 +62,7 @@ input[type='checkbox'] {
 
 .required-input-area {
     margin-top: 10px;
-    background: #ff010f;
-    font-weight: bold;
+    background: #ffa2a7;
     border-radius: 4px;
 
 }
@@ -66,6 +75,7 @@ label {
 #case {
     background: #eee;
     border-radius: 4px;
+    padding: 0px 15px 5px 15px;
 }
 
 #item-data {
@@ -121,11 +131,15 @@ label {
 #contacts {
     background: #ddd;
     border-radius: 4px;
+    padding: 0px 15px 5px 15px;
+
 }
 
 #person-information {
     background: #eee;
     border-radius: 4px;
+    padding: 0px 15px 5px 15px;
+
 }
 
 h3 {
@@ -143,12 +157,43 @@ h4 {
 
 #form-heading {
     text-align: center;
+    margin:0;
+    padding:15px 0px 15px 0px;
+    background: #3338ff;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 #id-card-icon {
-    max-height:25px;
+    max-height: 25px;
 }
 
 /*
 required fields are all bold-ish
 */
+
+/* The animation code */
+@keyframes background-color-fade {
+    from {
+        background-color: #82ff73;
+    }
+    to {
+        background-color: #eeeeee;
+    }
+}
+
+/* The element to apply the animation to */
+.fade-color {
+    animation-name: background-color-fade;
+    animation-duration: 1s;
+}
+
+#intro-text {
+
+    margin:0 30px 0 30px;
+}
+
+#police-logo {
+    margin-top: 15px;
+    width: 100%;
+}

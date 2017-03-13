@@ -89,11 +89,11 @@ function addDateTimeValidators()
         });
     //retarded event handling because datetimepicker did not fire proper events
 
-    $('#firstdatetimepicker').on('blur change click dblclick error focus focusin focusout hover keydown keypress keyup load mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup resize scroll select submit', function ()
+    $('#firstdatetimepicker').on('dp.change', function ()
     {
         $('#eventDateTime').parsley().validate();
     });
-    $('#birthdatetimepicker').on('blur change click dblclick error focus focusin focusout hover keydown keypress keyup load mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup resize scroll select submit', function ()
+    $('#birthdatetimepicker').on('dp.change', function ()
     {
         $('#submitterTimeOfBirth').parsley().validate();
     });
@@ -145,7 +145,9 @@ function removeSubmitterDataValidation()
 function submitForm()
 {
     var formParsley = $('#mainForm').parsley();
-    var confirmation = confirm("REPLACE ME LOL. Kas esitatud andmed on korrektsed?");
+    openDialog();
+
+    //var confirmation = confirm("REPLACE ME LOL. Kas esitatud andmed on korrektsed?");
     if (confirmation)
     {
         formParsley.validate();
@@ -174,6 +176,7 @@ function initEvents()
         if (person.hasClass("hidden"))
         {
             person.removeClass("hidden");
+            person.addClass('fade-color');
             addSubmitterDataValidation();
         } else
         {
@@ -202,35 +205,39 @@ function initEvents()
                 console.log(event.target);
                 $(event.target).parent().remove();
             });
+
+        witnessData.addClass('fade-color');
         $("#witnesses").append(witnessData);
     });
     $('#add-criminal').click(function ()
     {
-        var witnessData = $('#criminal-data')
+        var criminalData = $('#criminal-data')
             .clone()
             .removeClass('hidden')
             .removeAttr('id');
-        witnessData.find('.remove-entry')
+        criminalData.find('.remove-entry')
             .click(function (event)
             {
                 console.log(event.target);
                 $(event.target).parent().remove();
             });
-        $("#criminals").append(witnessData);
+        criminalData.addClass('fade-color');
+        $("#criminals").append(criminalData);
     });
     $('#add-item').click(function ()
     {
-        var witnessData = $('#item-data')
+        var itemData = $('#item-data')
             .clone()
             .removeClass('hidden')
             .removeAttr('id');
-        witnessData.find('.remove-entry')
+        itemData.find('.remove-entry')
             .click(function (event)
             {
                 console.log(event.target);
                 $(event.target).parent().remove();
             });
-        $("#items").append(witnessData);
+        itemData.addClass('fade-color');
+        $("#items").append(itemData);
     });
 }
 
@@ -302,3 +309,6 @@ function initEvents()
  *
  *
  * */
+function openDialog() {
+    document.getElementById('animated').open();
+}
