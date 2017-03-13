@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <!-- <link rel="stylesheet" href="css/style-colours.css"> -->
 
 </head>
@@ -31,8 +36,9 @@
 
 <div class="container">
     <div class="col-12-xs">
-        <div class="">
-            <h1 id="form-heading">Politseile avalduse esitamine</h1>
+        <div id="intro-text">
+            <img id='police-logo' src="https://1.bp.blogspot.com/-7OFqacUXZ4I/UWaK5mt6pmI/AAAAAAAAEbA/JFuUFEl9hhY/s1600/ppa+logo+cent.jpg">
+            <!--<h1 id="form-heading">Politseile avalduse esitamine</h1>-->
             <p class="important-text">
                 <span class="critical-text"> Kui kellegi elu või tervis on vahetult ohus, siis helista viivitamatult hädaabinumbrile 112.</span>
                 <br/>
@@ -40,16 +46,7 @@
                 väärkohtlemine - löömine, peksmine vm) teatamiseks. Raskest kuriteost teada andmiseks pöördu lähimasse
                 politseijaoskonda.
             </p>
-            <p class="important-text">
-                Võimalusel allkirjasta vorm digitaalselt. Nii on kindel, kes selle esitas.
-            </p>
 
-            <p class="important-text">
-                Avalduses ei tohi esitada valeandmeid.
-            </p>
-            <p class="important-text">
-                Vajadusel tuleb menetleja kutsel tulla politseijaoskonda täiendavate ütluste andmiseks.
-            </p>
         </div>
         <form id="mainForm" class="parsley-form" data-parsley-validate data-parsley-focus="first">
             <div class="col-md-12">
@@ -57,7 +54,7 @@
                 <div id="case">
                     <h3>Sündmus</h3>
 
-                    <div class="form-group" id="case-date">
+                    <div class="form-group required-input-area" id="case-date">
                         <label>Kuupäev ja kellaeg, millal sündmus toimus</label>
                         <div id='firstdatetimepicker' class='input-group date datetimepicker'>
                             <span class="input-group-addon">
@@ -89,7 +86,10 @@
 
                     <div class="form-group required-input-area">
                         <label>Sündmuse kirjeldus</label>
-                        <textarea id='eventDescription' class="form-control" name="name" rows="4" data-parsley-trigger="input"></textarea>
+                        <textarea id='eventDescription' class="form-control" name="name" rows="4"
+                                  data-parsley-trigger="input"
+                                  data-parsley-validate-if-empty
+                                  data-parsley-validation-threshold="0"	></textarea>
                     </div>
 
                     <div class="form-group">
@@ -367,7 +367,8 @@
                         <div class="col-md-6">
                             <div class="form-group required-input-area">
                                 <label>Telefon</label>
-                                <input id="contactPhoneNumber" class="form-control" type="text" data-parsley-pattern="\+?[0-9]+" data-parsley-trigger="input">
+                                <input id="contactPhoneNumber" class="form-control" type="text"
+                                       data-parsley-pattern="\+?[0-9]+" data-parsley-trigger="input">
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -386,14 +387,16 @@
 
                             <div class="form-group required-input-area">
                                 <label>E-mail (palun kontrollige, kas sisestasite õige aadressi)</label>
-                                <input id="contactEmail" class="form-control" type="text" data-parsley-type="email" data-parsley-trigger="input">
+                                <input id="contactEmail" class="form-control" type="text" data-parsley-type="email"
+                                       data-parsley-trigger="input">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group required-input-area">
                                 <label>E-mail uuesti</label>
                                 <input id="contactEmailCheck" class="form-control" type="text"
-                                       data-parsley-type="email" data-parsley-trigger="input" data-parsley-equalto="#contactEmail">
+                                       data-parsley-type="email" data-parsley-trigger="input"
+                                       data-parsley-equalto="#contactEmail">
                             </div>
                         </div>
                     </div>
@@ -423,7 +426,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Amet</label>
-                                <input id="submitterJobTitle" class="form-control" type="text" data-parsley-trigger="input">
+                                <input id="submitterJobTitle" class="form-control" type="text"
+                                       data-parsley-trigger="input">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -434,7 +438,8 @@
                         <div class="col-md-6">
                             <div class="form-group required-input-area">
                                 <label>Isikukood</label>
-                                <input id="submitterPIN" class="form-control" type="number" data-parsley-type="integer" data-parsley-trigger="input">
+                                <input id="submitterPIN" class="form-control" type="number" data-parsley-type="integer"
+                                       data-parsley-trigger="input">
                             </div>
                         </div>
                         <div class="col-md-6" id="submitter">
@@ -453,9 +458,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="extra-information">
+                    <p class="important-text">
+                        Võimalusel allkirjasta vorm digitaalselt. Nii on kindel, kes selle esitas.
+                    </p>
+
+                    <p class="important-text">
+                        Avalduses ei tohi esitada valeandmeid.
+                    </p>
+                    <p class="important-text">
+                        Vajadusel tuleb menetleja kutsel tulla politseijaoskonda täiendavate ütluste andmiseks.
+                    </p>
+                </div>
                 <div id="send-buttons">
                     <button type="button" id="with-id" class="btn btn-primary active btn-block">
-                        <img id='id-card-icon' src="http://www.id.ee/public/.thumbnails/id-logo-suur_520x478.png"> Kinnitan ja
+                        <img id='id-card-icon' src="http://www.id.ee/public/.thumbnails/id-logo-suur_520x478.png">
+                        Kinnitan ja
                         allkirjastan
                         ID kaardiga
                     </button>
@@ -467,6 +486,13 @@
         </form>
     </div>
 </div>
+<paper-dialog id="animated" modal>
+    <p>Kas sisestatud andmed on korrektsed?</p>
+    <div class="buttons">
+        <paper-button onclick="submitForm()" dialog-confirm autofocus>Jah</paper-button>
+        <paper-button onclick="closeDialog()" dialog-confirm autofocus>Ei</paper-button>
+    </div>
+</paper-dialog>
 
 </body>
 </html>
