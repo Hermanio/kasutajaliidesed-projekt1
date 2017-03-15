@@ -218,5 +218,9 @@ required fields are all bold-ish
 }
 
 #case, #contacts, #person-information {
-    padding: 5px 15px 5px 15px !important;
+    padding: 5px 15px 5px 15px;
+}
+
+h3 {
+    margin-top: 0;
 }
