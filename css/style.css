@@ -82,7 +82,6 @@ label {
 #case {
     background: #eee;
     border-radius: 4px;
-    padding: 0px 15px 5px 15px;
 }
 
 #item-data {
@@ -132,14 +131,12 @@ label {
 #contacts {
     background: #eee;
     border-radius: 4px;
-    padding: 0px 15px 5px 15px;
 
 }
 
 #person-information {
     background: #eee;
     border-radius: 4px;
-    padding: 0px 15px 5px 15px;
 
 }
 
