@@ -245,6 +245,8 @@ function initEvents()
                 console.log(errorsContainter, el.find("input"));
                 el.find("input").attr("data-parsley-errors-container", errorsContainter);
             });
+
+            data.addClass("fade-color");
         });
     }
 
