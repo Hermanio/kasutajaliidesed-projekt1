@@ -219,3 +219,7 @@ required fields are all bold-ish
     text-align: center;
     font-size: 2em;
 }
+
+#case, #contacts, #person-information {
+    padding: 5px 15px 5px 15px !important;
+}
